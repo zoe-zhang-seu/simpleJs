@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    container_name: app
+    ports:
+      - "8080:80"
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    # volumes:
+    #   - ./public:/usr/local/apache2/htdocs
+    depends_on:
+      - server  
+      # this means start server at first, just start may not ready
+  server:
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
