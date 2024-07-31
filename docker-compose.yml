@@ -7,8 +7,8 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
-    # volumes:
-    #   - ./public:/usr/local/apache2/htdocs
+    volumes:
+      - ./app/public:/usr/local/apache2/htdocs
     depends_on:
       - server  
       # this means start server at first, just start may not ready

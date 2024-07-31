@@ -1,13 +1,13 @@
 {
-    "name": "my-js-project-server",
-    "version": "1.0.0",
-    "description": "Server for simple javascript",
-    "main": "index.js",
-    "scripts": {
-      "start": "node index.js"
-    },
-    "dependencies": {
-      "express": "^4.17.1"
-    }
+  "name": "my-js-project-server",
+  "version": "1.0.0",
+  "description": "Server for simple javascript",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.12.0"
   }
-  
+}

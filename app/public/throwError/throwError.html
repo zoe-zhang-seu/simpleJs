@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Handling Example</title>
+  <script>
+    function triggerError() {
+      try {
+        // Intentionally throwing an error
+        throw new Error("Something went wrong!");
+      } catch (error) {
+        // Handling the error and displaying a message
+        alert("Error: " + error.message);
+      }
+    }
+
+    function accessElement() {
+      try {
+        // Attempting to access an element with a non-existent ID
+        var element = document.getElementById("nonExistentId");
+        
+        if (element === null) {
+          throw new Error("Element not found!");
+        }
+        
+        // If the element is found (which it isn't in this case), perform actions with it
+        element.innerText = "This will not be executed";
+        
+      } catch (error) {
+        // Handling the error and displaying a message
+        alert("Error: " + error.message);
+      }
+    }
+
+    function triggerTypeError() {
+      try {
+        // Deliberately causing a TypeError by calling a method on undefined
+        let undefinedVar;
+        undefinedVar.someMethod(); // This will throw a TypeError
+        
+      } catch (error) {
+        // Handling the error and displaying a message
+        if (error instanceof TypeError) {
+          alert("Caught a TypeError: " + error.message);
+        } else {
+          alert("Caught an error: " + error.message);
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Error Handling Example</h1>
+  <button onclick="triggerError()">Trigger Error</button>
+
+  <button onclick="accessElement()">Access Element</button>
+
+  <button onclick="triggerTypeError()">Trigger TypeError</button>
+
+</body>
+</html>

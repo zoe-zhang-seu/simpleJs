@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Node Addition Example</title>
+  <style>
+    #container {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function addParagraph() {
+      try {
+        // Get the container element
+        let container = document.getElementById("container");
+        
+        // Create a new paragraph element
+        let newParagraph = document.createElement("p");
+        
+        // Set the text content of the new paragraph
+        newParagraph.textContent = "This is a new paragraph added to the DOM.";
+        
+        // Append the new paragraph to the container
+        container.appendChild(newParagraph);
+        
+      } catch (error) {
+        // Handle any errors
+        alert("Error: " + error.message);
+      }
+    }
+
+    function addButton() {
+      try {
+        // Get the container element
+        let container = document.getElementById("buttons");
+        
+        // Create a new button element
+        let newButton = document.createElement("button");
+        
+        // Set the text content of the new button
+        newButton.textContent = "New Button";
+        
+        // Set an event listener for the new button
+        newButton.onclick = function() {
+          alert("New Button Clicked!");
+        };
+
+        // Get the existing button to insert the new button before it
+        let existingButton = document.querySelector("button");
+        
+        // Insert the new button before the existing button
+        if (existingButton) {
+          document.body.insertBefore(newButton, existingButton);
+        } else {
+          // If no existing button, append to the container
+          container.appendChild(newButton);
+        }
+        
+      } catch (error) {
+        // Handle any errors
+        alert("Error: " + error.message);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>DOM Node Addition Example</h1>
+  <button onclick="addParagraph()">Add Paragraph</button>
+  <button onclick="addButton()">Add New Button</button>
+
+  <div id="container">
+    <!-- New paragraphs will be added here -->
+     <div id="buttons">
+  </div>
+</body>
+</html>

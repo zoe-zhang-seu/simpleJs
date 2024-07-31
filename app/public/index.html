@@ -11,17 +11,26 @@
     <button id="myButton">Click me</button>
     <p id="message"></p>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => 
+        {
+            let userName = prompt("Please enter your name:"); //for modal
+            if (userName !== null && userName.trim() !== "") {
+            alert("Hello, " + userName + "!");
+            } else {
+            alert("No valid name was entered.");
+            }
+        const button = document.getElementById('myButton');
+        const message = document.getElementById('message');
+        button.addEventListener('click', () => {
+            message.textContent = 'Button was clicked!';
+        });
+    
+       
+    });
+    </script>
 </body>
 </html>
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-    const button = document.getElementById('myButton');
-    const message = document.getElementById('message');
 
-    button.addEventListener('click', () => {
-        message.textContent = 'Button was clicked!';
-    });
-});
-</script>
+
 
